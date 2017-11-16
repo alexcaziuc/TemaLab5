@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-// TODO: 16-Nov-17 De tratat cazurile in care se da un nume care nu exista in Agenda !!!!
-
 public class PersonAgenda {
 
     static Person[] contactsList = new Person[10];
