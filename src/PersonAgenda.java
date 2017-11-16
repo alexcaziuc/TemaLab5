@@ -137,7 +137,6 @@ public class PersonAgenda {
                     System.out.println("Contactul a fost adaugat.");
                     return;
                 }
-
             }
             System.out.println("agenda plina, ia alta mai mare");
 
@@ -185,11 +184,11 @@ public class PersonAgenda {
 
                 System.out.println(contactsList[i].name + " : " + contactsList[i].phone + " exista in agenda.");
                 index = i;
-                return index;
             }
         }
 
-        System.out.println(name + " nu exista in agenda!");
-        return -1;
+        if (index == -1)
+            System.out.println(name + " nu exista in agenda!");
+        return index;
     }
 }

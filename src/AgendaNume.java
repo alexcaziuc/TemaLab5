@@ -122,17 +122,20 @@ public class AgendaNume {
     //  ->>>>>>>>>>>>>>>>>>>>>>> metoda cautare + modificare
     public static int cautareSimpla(String nume) {
 
+        int index = -1;
         for (int i = 0; i < agendaDeNume.length; i++) {
             if (nume.equalsIgnoreCase(agendaDeNume[i])) {
 
                 System.out.println(nume + " exista in agenda telefonica.");
-                return i;
+                index = i;
+
             }
         }
 
-        System.out.println(nume + " nu exista in agenda telefonica.");
+        if (index == -1)
+            System.out.println(nume + " nu exista in agenda telefonica.");
 
-        return -1;
+        return index;
     }
 
     public static void modificare() {
@@ -148,9 +151,5 @@ public class AgendaNume {
 
             System.out.println("Numele cautat a fost gasit si inlocuit");
         }
-//        } else {
-//
-//            System.out.println("Numele de modificat nu exista");
-//        }
     }
 }
