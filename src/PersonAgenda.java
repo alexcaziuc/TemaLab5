@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class PersonAgenda {
 
     static Person[] contactsList = new Person[10];
-    static int position = 5;
 
     public static void showMenu() {
         System.out.println("1> Display Agenda");
@@ -116,17 +115,17 @@ public class PersonAgenda {
 
     private static void add() {
 
-        if (position < contactsList.length) {
-
-            String nume = readName("Da-ti numele de adaugat: ");
-            String tel = readPhone("Da-ti nr de telefon: ");
-
-            contactsList[position].name = nume;
-            contactsList[position].phone = tel;
-
-            position++;
-
-        } else {
+//        if (position < contactsList.length) {
+//
+//            String nume = readName("Da-ti numele de adaugat: ");
+//            String tel = readPhone("Da-ti nr de telefon: ");
+//
+//            contactsList[position].name = nume;
+//            contactsList[position].phone = tel;
+//
+//            position++;
+//
+//        } else {
 
             for (int i = 0; i < contactsList.length; i++) {
                 if (contactsList[i] == null) {
@@ -134,14 +133,16 @@ public class PersonAgenda {
                     String nume = readName("Da-ti numele de adaugat: ");
                     String tel = readPhone("Da-ti nr de telefon: ");
 
+                    contactsList[i] = new Person();
                     contactsList[i].name = nume;
                     contactsList[i].phone = tel;
-                    break;
+                    System.out.println("Contactul a fost adaugat.");
+                    return;
                 }
 
             }
             System.out.println("agenda plina, ia alta mai mare");
-        }
+
     }
 
 
@@ -182,7 +183,7 @@ public class PersonAgenda {
 
         for (int i = 0; i < contactsList.length; i++) {
 
-            if (name.equalsIgnoreCase(contactsList[i].name)) {
+            if (contactsList[i] != null && name.equalsIgnoreCase(contactsList[i].name)) {
 
                 System.out.println(contactsList[i].name + " : " + contactsList[i].phone + " exista in agenda.");
                 index = i;
